@@ -1,0 +1,48 @@
+<!--Exercise-Form Validation Question-2--->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <script>
+        function validateForm() {
+            var Name = document.getElementById("name").value;
+            var Price = document.getElementById("price").value;
+            // Name 
+            if (Name == "") {
+                alert("Please enter your name");
+                return false;
+            }
+
+            if (Name.length < 2 || Name.length > 15) {
+                alert("name must be at least 2 characters and not more than 15 charcters long");
+                return false;
+            }
+
+            if (!Name.match(/^[a-zA-z]+$/)) {
+                alert("name can only contain letters");
+                return false;
+            }
+        //    Price
+            if (Price < 0) {
+                alert("Price must be positive");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <form onsubmit="return validateForm()" style=" display: inline-block;border: 1px solid blue;background-color: wheat; padding: 5px;margin-left: 30%;">
+
+        <label><b> Name</b></label><div><input type="text" id="name"><br></div>
+        <label><b>Price</b></label><div><input type="number" id="price"><br></div><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
